@@ -115,22 +115,22 @@ button {
     <header><a>For</a>Chim</header>
     <div id="main-part">
       <h2>Registration</h2>
-      <form action="/register" method="post">
+      <form th:action="@{/register}" th:method="post" th:object="${user}">
         <div class="form-component">
           <label for="email">Email</label>
-          <input id="email" name="email" type="text">
+          <input th:field="*{email}" id="email" name="email" type="text">
         </div>
         <div class="form-component">
-          <label for="first-name">First Name</label>
-          <input id="first-name" name="first-name" type="text">
+          <label for="firstName">First Name</label>
+          <input th:field="*{firstName}" id="firstName" name="firstName" type="text">
         </div>
         <div class="form-component">
-          <label for="second-name">Second Name</label>
-          <input id="second-name" name="second-name" type="text">
+          <label for="secondName">Second Name</label>
+          <input th:field="*{secondName}" id="secondName" name="secondName" type="text">
         </div>
         <div class="form-component">
           <label for="password">Password</label>
-          <input id="password" name="password" type="password">
+          <input th:field="*{password}" id="password" name="password" type="password">
         </div>
         <button type="submit">Register</button>
       </form>

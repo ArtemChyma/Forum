@@ -17,7 +17,7 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public void saveUser(User user) {
-
+        userRepository.save(user);
     }
 
     @Override
