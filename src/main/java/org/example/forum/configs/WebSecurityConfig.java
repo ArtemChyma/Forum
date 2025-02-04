@@ -1,9 +1,12 @@
 package org.example.forum.configs;
 
+import org.example.forum.DAO.UserDAOImpl;
+import org.example.forum.services.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -13,6 +16,15 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 public class WebSecurityConfig {
 
+    @Bean
+    public UserDAOImpl userDAOImpl() {
+        return new UserDAOImpl();
+    }
+    @Bean
+    public UserDetailsService userDetailsService() {
+        UserDAOImpl userDAO = userDAOImpl();
+        return new CustomUserDetailsService(userDAO);
+    }
     @Bean
     public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
