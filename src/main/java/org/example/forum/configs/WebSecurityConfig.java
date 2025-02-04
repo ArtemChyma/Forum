@@ -23,6 +23,7 @@ public class WebSecurityConfig {
         http.authorizeHttpRequests(req -> req.requestMatchers("/login", "/register")
                 .permitAll().anyRequest().authenticated())
                 .formLogin(f -> f.loginPage("/login")
+                        .usernameParameter("email")
                         .loginProcessingUrl("/login")
                         .defaultSuccessUrl("/main_page", true).permitAll()
                 ).logout(l -> l.invalidateHttpSession(true)
