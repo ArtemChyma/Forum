@@ -9,6 +9,8 @@
     --input-box-shadow-color: #8e8e8e;
     --registration-link-color: #0D00C9;
     --registration-link-hover-color: #3A30C6;
+    --button-bg-color: #62B3FF;
+    --button-text-color: #FFFFFF;
 }
 
 body {
@@ -66,6 +68,12 @@ h3 a:hover {
     align-items: center;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .form-component {
     display: flex;
     flex-direction: column;
@@ -88,13 +96,26 @@ h3 a:hover {
     padding-left: 8px;
     box-shadow: 0 4px 4px var(--input-box-shadow-color);
 }
+
+button {
+    margin-top: 44px;
+    margin-bottom: 0;
+    background: var(--button-bg-color);
+    color: var(--button-text-color);
+    width: 200px;
+    height: 50px;
+    outline: none;
+    border: none;
+    font-size: 32px;
+    box-shadow: 0 4px 4px var(--input-box-shadow-color);
+}
     </style>
   </head>
   <body>
     <header><a>For</a>Chim</header>
     <div id="main-part">
       <h2>Login</h2>
-      <form action="#" method="post">
+      <form action="/login" method="post">
         <div class="form-component">
           <label for="email">Email</label>
           <input id="email" name="email" type="text">
@@ -103,8 +124,9 @@ h3 a:hover {
           <label for="password">Password</label>
           <input id="password" name="password" type="password">
         </div>
+        <button type="submit">Log In</button>
       </form>
-      <h3>Do not have an account yet <a href="#">Registration</a>!</h3>
+      <h3>Do not have an account yet <a href="/register">Registration</a>!</h3>
     </div>
   </body>
 </html>
