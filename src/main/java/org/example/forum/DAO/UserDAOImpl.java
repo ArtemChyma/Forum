@@ -5,6 +5,8 @@ import org.example.forum.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class UserDAOImpl implements UserDAO{
     @Autowired
@@ -21,7 +23,7 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public User getUserByEmail(String email) {
-        return userRepository.findByEmail(email);
+    public Optional<User> getUserByEmail(String email) {
+        return userRepository.findUserByEmail(email);
     }
 }

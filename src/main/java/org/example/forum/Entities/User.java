@@ -17,7 +17,7 @@ public class User {
     private String secondName;
     private String role;
     private String password;
-
+    private String googleId;
     public User() {
 
     }
@@ -64,5 +64,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getGoogleId() {
+        return googleId;
+    }
+
+    public void setGoogleId(String googleId) {
+        this.googleId = googleId;
     }
 }

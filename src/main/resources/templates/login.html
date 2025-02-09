@@ -11,6 +11,8 @@
     --registration-link-hover-color: #3A30C6;
     --button-bg-color: #62B3FF;
     --button-text-color: #FFFFFF;
+    --google-login-color: #D9D9D9;
+    --forgot-password-color: #888888;
 }
 
 body {
@@ -109,13 +111,40 @@ button {
     font-size: 32px;
     box-shadow: 0 4px 4px var(--input-box-shadow-color);
 }
+
+.renew-password {
+    color: var(--forgot-password-color);
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.authorization-link {
+    text-decoration: none;
+    width: 500px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 40px;
+    background: var(--google-login-color);
+    box-shadow: 0 4px 4px var(--input-box-shadow-color);
+    box-sizing: border-box;
+    padding-inline: 10px;
+    color: var(--first-header-color);
+    margin-top: 44px;
+}
+
+a img {
+    width: 40px;
+    height: 40px;
+}
     </style>
   </head>
   <body>
     <header><a>For</a>Chim</header>
     <div id="main-part">
       <h2>Login</h2>
-      <form action="/login" method="post">
+      <form th:action="@{/login}" th:method="post">
         <div class="form-component">
           <label for="email">Email</label>
           <input id="email" name="email" type="text">
@@ -125,8 +154,10 @@ button {
           <input id="password" name="password" type="password">
         </div>
         <button type="submit">Log In</button>
-      </form>
+      </form><a class="renew-password" href="#">Forgot your password?</a>
       <h3>Do not have an account yet <a href="/register">Registration</a>!</h3>
+      <a class="authorization-link" href="/oauth2/authorization/google">
+        <img src="https://www.svgrepo.com/show/303108/google-icon-logo.svg" alt="Google Icon"> Continue with Google</a>
     </div>
   </body>
 </html>

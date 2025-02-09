@@ -30,7 +30,7 @@ public class RegistrationController {
 
     @PostMapping
     public String registerUser(Model model, @ModelAttribute("user")User user) {
-        if (userDAOImpl.getUserByEmail(user.getEmail()) != null){
+        if (userDAOImpl.getUserByEmail(user.getEmail()).isPresent()){
             model.addAttribute("userExists", "User with this email already exists");
             return "registration";
         }
