@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title></title>
-    <style>:root {
+:root {
     --second-header-color: #FF7F00;
     --first-header-color: #000000;
     --input-background-color: #D9D9D9;
@@ -138,26 +134,17 @@ a img {
     width: 40px;
     height: 40px;
 }
-    </style>
-  </head>
-  <body>
-    <header><a>For</a>Chim</header>
-    <div id="main-part">
-      <h2>Login</h2>
-      <form th:action="@{/login}" th:method="post">
-        <div class="form-component">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="text">
-        </div>
-        <div class="form-component">
-          <label for="password">Password</label>
-          <input id="password" name="password" type="password">
-        </div>
-        <button type="submit">Log In</button>
-      </form><a class="renew-password" href="/reset">Forgot your password?</a>
-      <h3>Do not have an account yet <a href="/register">Registration</a>!</h3>
-      <a class="authorization-link" href="/oauth2/authorization/google">
-        <img src="https://www.svgrepo.com/show/303108/google-icon-logo.svg" alt="Google Icon"> Continue with Google</a>
-    </div>
-  </body>
-</html>
+
+.input-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+svg {
+    margin-left: 10px;
+}
+
+.hidden-part {
+    display: none;
+}
