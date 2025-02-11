@@ -16,8 +16,17 @@ public class Token {
     private Timestamp created_at;
     private Timestamp expires_at;
     private String used;
+    private Long userId;
 
     public Token() {
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public Long getId() {

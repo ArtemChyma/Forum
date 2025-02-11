@@ -3,6 +3,7 @@ package org.example.forum.controllers;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.example.forum.Entities.Token;
+import org.example.forum.Entities.User;
 import org.example.forum.repositories.TokenRepository;
 import org.example.forum.repositories.UserRepository;
 import org.example.forum.services.MailSenderService;
@@ -10,10 +11,12 @@ import org.example.forum.validators.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Optional;
@@ -23,7 +26,7 @@ import java.util.UUID;
 @RequestMapping("/reset")
 public class ResetPasswordController {
 
-
+    private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final TokenRepository tokenRepository;
     private final MailSenderService mailSenderService;
@@ -32,17 +35,20 @@ public class ResetPasswordController {
 
     @Autowired
     public ResetPasswordController(UserRepository userRepository, MailSenderService mailSenderService,
-                                   TokenRepository tokenRepository) {
+                                   TokenRepository tokenRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.mailSenderService = mailSenderService;
         this.tokenRepository = tokenRepository;
+        this.passwordEncoder = passwordEncoder;
     }
-    private String generateToken() {
+    private String generateToken(String email) {
         String generatedToken = UUID.randomUUID().toString();
 
         Token token = new Token();
         token.setToken(generatedToken);
         token.setUsed("NOT_USED");
+        Optional<User> user = userRepository.findUserByEmail(email);
+        user.ifPresent(value -> token.setUserId(value.getId()));
 
         Date currentDate = new Date();
         Timestamp creationDate = new Timestamp(currentDate.getTime());
@@ -50,6 +56,7 @@ public class ResetPasswordController {
 
         Timestamp expirationDate = new Timestamp(currentDate.getTime() + TIME_TO_EXPIRE);
         token.setExpires_at(expirationDate);
+
 
         tokenRepository.save(token);
         return generatedToken;
@@ -67,7 +74,7 @@ public class ResetPasswordController {
            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User with such email address is not found");
         }
         if (EmailValidator.isValidEmail(email)) {
-            mailSenderService.send(email, "Password recovery link", DEFAULT_LINK_TO_RECOVERY + generateToken());
+            mailSenderService.send(email, "Password recovery link", DEFAULT_LINK_TO_RECOVERY + generateToken(email));
         }
         return ResponseEntity.ok().build();
     }
@@ -83,5 +90,29 @@ public class ResetPasswordController {
         user_token.get().setUsed("USED");
         tokenRepository.save(user_token.get());
         return "reset-password-stage2";
+    }
+
+    @PostMapping("/{token}")
+    public String initiateResetPassword(Model model, @PathVariable("token") String token, HttpServletRequest request) {
+        String password = request.getParameter("password");
+        String repeatPassword = request.getParameter("repeat-password");
+        if (!password.equals(repeatPassword)) {
+            model.addAttribute("passwordMatching", "Password is are not identical");
+            return "reset-password-stage2";
+        }
+        Optional<User> user;
+        Optional<Token> userToken = tokenRepository.findTokenByToken(token);
+        if (userToken.isEmpty()) {
+            user = Optional.empty();
+        } else {
+            user = userRepository.findUserById(userToken.get().getUserId());
+        }
+
+        if (user.isEmpty()) {
+            throw new RuntimeException("USER WITH SUCH PASSWORD DOES NOT EXIST");
+        }
+        user.get().setPassword(passwordEncoder.encode(password));
+        userRepository.save(user.get());
+        return "successful-reset-password";
     }
 }
