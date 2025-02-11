@@ -1,163 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title></title>
     <style>:root {
-    --second-header-color: #FF7F00;
-    --first-header-color: #000000;
-    --input-background-color: #D9D9D9;
-    --input-box-shadow-color: #8e8e8e;
-    --registration-link-color: #0D00C9;
-    --registration-link-hover-color: #3A30C6;
-    --button-bg-color: #62B3FF;
-    --button-text-color: #FFFFFF;
-    --google-login-color: #D9D9D9;
-    --forgot-password-color: #888888;
-}
+        --second-header-color: #FF7F00;
+        --first-header-color: #000000;
+        --input-background-color: #D9D9D9;
+        --input-box-shadow-color: #8e8e8e;
+        --registration-link-color: #0D00C9;
+        --registration-link-hover-color: #3A30C6;
+        --button-bg-color: #62B3FF;
+        --button-text-color: #FFFFFF;
+        --google-login-color: #D9D9D9;
+        --forgot-password-color: #888888;
+    }
 
-body {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: Inter, serif;
-    height: 100vh;
-}
+    body {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Inter, serif;
+        height: 100vh;
+    }
 
-header {
-    color: var(--second-header-color);
-    font-size: 40px;
-}
+    header {
+        color: var(--second-header-color);
+        font-size: 40px;
+    }
 
-header a {
-    color: var(--first-header-color);
-}
+    header a {
+        color: var(--first-header-color);
+    }
 
-h2 {
-    font-weight: normal;
-    font-size: 40px;
-    margin-bottom: 0;
-    margin-top: 36px;
-}
+    h2 {
+        font-weight: normal;
+        font-size: 40px;
+        margin-bottom: 0;
+        margin-top: 36px;
+    }
 
-h3 {
-    font-weight: normal;
-    font-size: 32px;
-    margin-bottom: 0;
-    margin-top: 44px;
-}
-h3 a {
-    color: var(--registration-link-color);
-    text-decoration: none;
-}
+    h3 {
+        font-weight: normal;
+        font-size: 32px;
+        margin-bottom: 0;
+        margin-top: 44px;
+    }
 
-h3 a:visited {
-    text-decoration: none;
-    color: var(--registration-link-color);
-}
+    h3 a {
+        color: var(--registration-link-color);
+        text-decoration: none;
+    }
 
-h3 a:hover {
-    text-decoration: underline;
-    color: var(--registration-link-hover-color);
-}
+    h3 a:visited {
+        text-decoration: none;
+        color: var(--registration-link-color);
+    }
 
-#main-part {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    h3 a:hover {
+        text-decoration: underline;
+        color: var(--registration-link-hover-color);
+    }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    #main-part {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-.form-component {
-    display: flex;
-    flex-direction: column;
-    margin-top: 44px;
-}
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.form-component label {
-    font-size: 24px;
-}
+    .form-component {
+        display: flex;
+        flex-direction: column;
+        margin-top: 44px;
+    }
 
-.form-component input {
-    border: none;
-    outline: none;
-    width: 400px;
-    height: 70px;
-    background: var(--input-background-color);
-    font-size: 30px;
-    font-weight: normal;
-    font-family: Inter, serif;
-    padding-left: 8px;
-    box-shadow: 0 4px 4px var(--input-box-shadow-color);
-}
+    .form-component label {
+        font-size: 24px;
+    }
 
-button {
-    margin-top: 44px;
-    margin-bottom: 0;
-    background: var(--button-bg-color);
-    color: var(--button-text-color);
-    width: 200px;
-    height: 50px;
-    outline: none;
-    border: none;
-    font-size: 32px;
-    box-shadow: 0 4px 4px var(--input-box-shadow-color);
-}
+    .form-component input {
+        border: none;
+        outline: none;
+        width: 400px;
+        height: 70px;
+        background: var(--input-background-color);
+        font-size: 30px;
+        font-weight: normal;
+        font-family: Inter, serif;
+        padding-left: 8px;
+        box-shadow: 0 4px 4px var(--input-box-shadow-color);
+    }
 
-.renew-password {
-    color: var(--forgot-password-color);
-    font-size: 16px;
-    margin-top: 5px;
-}
+    button {
+        margin-top: 44px;
+        margin-bottom: 0;
+        background: var(--button-bg-color);
+        color: var(--button-text-color);
+        width: 200px;
+        height: 50px;
+        outline: none;
+        border: none;
+        font-size: 32px;
+        box-shadow: 0 4px 4px var(--input-box-shadow-color);
+    }
 
-.authorization-link {
-    text-decoration: none;
-    width: 500px;
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 40px;
-    background: var(--google-login-color);
-    box-shadow: 0 4px 4px var(--input-box-shadow-color);
-    box-sizing: border-box;
-    padding-inline: 10px;
-    color: var(--first-header-color);
-    margin-top: 44px;
-}
+    .renew-password {
+        color: var(--forgot-password-color);
+        font-size: 16px;
+        margin-top: 5px;
+    }
 
-a img {
-    width: 40px;
-    height: 40px;
-}
+    .authorization-link {
+        text-decoration: none;
+        width: 500px;
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 40px;
+        background: var(--google-login-color);
+        box-shadow: 0 4px 4px var(--input-box-shadow-color);
+        box-sizing: border-box;
+        padding-inline: 10px;
+        color: var(--first-header-color);
+        margin-top: 44px;
+    }
+
+    a img {
+        width: 40px;
+        height: 40px;
+    }
     </style>
-  </head>
-  <body>
-    <header><a>For</a>Chim</header>
-    <div id="main-part">
-      <h2>Login</h2>
-      <form th:action="@{/login}" th:method="post">
+</head>
+<body>
+<header><a>For</a>Chim</header>
+<div id="main-part">
+    <h2>Login</h2>
+    <form th:action="@{/login}" th:method="post">
         <div class="form-component">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="text">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="text">
         </div>
         <div class="form-component">
-          <label for="password">Password</label>
-          <input id="password" name="password" type="password">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password">
         </div>
         <button type="submit">Log In</button>
-      </form><a class="renew-password" href="/reset">Forgot your password?</a>
-      <h3>Do not have an account yet <a href="/register">Registration</a>!</h3>
-      <a class="authorization-link" href="/oauth2/authorization/google">
+    </form>
+    <a class="renew-password" href="/reset">Forgot your password?</a>
+    <h3>Do not have an account yet <a href="/register">Registration</a>!</h3>
+    <a class="authorization-link" href="/oauth2/authorization/google">
         <img src="https://www.svgrepo.com/show/303108/google-icon-logo.svg" alt="Google Icon"> Continue with Google</a>
-    </div>
-  </body>
+</div>
+</body>
 </html>
