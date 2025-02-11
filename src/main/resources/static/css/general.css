@@ -95,7 +95,7 @@ form {
     box-shadow: 0 4px 4px var(--input-box-shadow-color);
 }
 
-button {
+.form-submit {
     margin-top: 44px;
     margin-bottom: 0;
     background: var(--button-bg-color);
@@ -147,4 +147,10 @@ svg {
 
 .hidden-part {
     display: none;
+}
+
+#send-button {
+    border: none;
+    outline: none;
+    background: none;
 }

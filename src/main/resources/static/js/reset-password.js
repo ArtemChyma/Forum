@@ -1,12 +1,12 @@
 let mainPart = document.querySelector('#main-part');
 let hiddenPart = document.querySelector(".hidden-part");
-let sendLink = document.querySelector("#send-link");
+let sendButton = document.querySelector("#send-button");
 
 console.log(mainPart == null);
 console.log(hiddenPart == null);
-console.log(sendLink == null);
+console.log(sendButton == null);
 
-sendLink.addEventListener("click", function (event) {
+sendButton.addEventListener("click", function (event) {
     event.preventDefault();
     mainPart.style.display = "none";
     hiddenPart.style.display = "block";
