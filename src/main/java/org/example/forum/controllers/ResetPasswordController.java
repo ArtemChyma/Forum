@@ -49,8 +49,8 @@ public class ResetPasswordController {
     }
 
     @GetMapping("/{token}")
-    public String resetPassword(@PathVariable("token") String token) {
-
-        return ;
+    public String resetPassword(Model model, @PathVariable("token") String token) {
+        model.addAttribute("token", token);
+        return "reset-password-stage2";
     }
 }

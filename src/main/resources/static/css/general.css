@@ -154,3 +154,7 @@ svg {
     outline: none;
     background: none;
 }
+
+.change-password {
+    width: 300px;
+}
