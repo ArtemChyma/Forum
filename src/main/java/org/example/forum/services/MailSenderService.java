@@ -20,7 +20,7 @@ public class MailSenderService {
 
     public void send(String to, String subject, String body) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setTo();
+        mailMessage.setTo(to);
         mailMessage.setFrom(from);
         mailMessage.setSubject(subject);
         mailMessage.setText(body);
