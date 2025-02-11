@@ -61,13 +61,15 @@ public class ResetPasswordController {
     }
 
     @PostMapping()
-    public ResponseEntity<Void> sendEmailTo(HttpServletRequest request) {
+    public ResponseEntity<String> sendEmailTo(HttpServletRequest request) {
         String email = request.getParameter("email");
+        if (userRepository.findUserByEmail(email).isEmpty()) {
+           return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User with such email address is not found");
+        }
         if (EmailValidator.isValidEmail(email)) {
             mailSenderService.send(email, "Password recovery link", DEFAULT_LINK_TO_RECOVERY + generateToken());
-            return ResponseEntity.ok().build();
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{token}")

@@ -8,21 +8,29 @@ console.log(hiddenPart == null);
 console.log(sendButton == null);
 console.log(sendingForm== null)
 sendingForm.addEventListener("submit", function (event) {
-    event.preventDefault(); // предотвращаем перезагрузку страницы
-    mainPart.style.display = "none";
-    hiddenPart.style.display = "block";
+    event.preventDefault();
+    sendButton.style.display = "none";
     const formData = new FormData(sendingForm);
 
     fetch(sendingForm.action, {
         method: sendingForm.method,
         body: formData,
     })
-        .then(response => response.text()) // или response.json() в зависимости от сервера
-        .then(data => {
-            console.log("Успешно отправлено:", data);
-
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(errorMessage => {
+                    alert(errorMessage);
+                    sendButton.style.display = "block";
+                    throw new Error();
+                });
+            }
+            mainPart.style.display = "none";
+            hiddenPart.style.display = "block";
+            return response.text();
         })
-        .catch(error => console.error("Ошибка при отправке формы:", error));
+        .then(data => {
+            alert("Mail is sent");
+        })
 });
 
 // sendButton.addEventListener("click", function (event) {
