@@ -1,0 +1,37 @@
+:root {
+    --side-bar-text-color: #888888;
+    --side-bar-border-color: #BBBBBB;
+}
+
+.side-bar {
+    font-size: 20px;
+    border-right: 1px solid var(--side-bar-border-color);
+}
+
+.bar__navigation-list {
+    margin: 0;
+    list-style: none;
+    padding: 25px 0 0 0;
+}
+
+
+.navigation-list__item:not(:first-child) {
+    margin-top: 35px;
+}
+
+.navigation-pd {
+    margin-top: 80px;
+}
+
+.list__option {
+    text-decoration: none;
+    color: var(--side-bar-text-color);
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+
+.list__option svg {
+    width: 27px;
+    height: 27px;
+}

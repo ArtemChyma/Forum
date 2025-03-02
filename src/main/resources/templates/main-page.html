@@ -1,13 +1,173 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/main-styles.css}">
+    <link rel="stylesheet" th:href="@{/css/side-bar.css}">
 </head>
 <body>
-    Hello Buddy
+<header>
+    <div class="header-content-bar"><a class="main-page-logo-link" href="#"><span class="for">For</span><span
+            class="chim">Chim</span></a>
+        <form class="search-form">
+            <svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Icon-Set" transform="translate(-256.000000, -1139.000000)" fill="#888888">
+                        <path d="M269.46,1163.45 C263.17,1163.45 258.071,1158.44 258.071,1152.25 C258.071,1146.06 263.17,1141.04 269.46,1141.04 C275.75,1141.04 280.85,1146.06 280.85,1152.25 C280.85,1158.44 275.75,1163.45 269.46,1163.45 L269.46,1163.45 Z M287.688,1169.25 L279.429,1161.12 C281.591,1158.77 282.92,1155.67 282.92,1152.25 C282.92,1144.93 276.894,1139 269.46,1139 C262.026,1139 256,1144.93 256,1152.25 C256,1159.56 262.026,1165.49 269.46,1165.49 C272.672,1165.49 275.618,1164.38 277.932,1162.53 L286.224,1170.69 C286.629,1171.09 287.284,1171.09 287.688,1170.69 C288.093,1170.3 288.093,1169.65 287.688,1169.25 L287.688,1169.25 Z"
+                              id="search"></path>
+                    </g>
+                </g>
+            </svg>
+            <input class="search-line" placeholder="Search...">
+        </form>
+        <a href="#">
+            <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" data-name="Layer 3" id="Layer_3"
+                 viewBox="0 0 32 32">
+                <defs>
+                    <style>.cls-1, .cls-2 {
+                        fill: none;
+                        stroke: #0832ff;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                    }
+
+                    .cls-2 {
+                        stroke-width: 2px;
+                    }</style>
+                </defs>
+                <title/>
+                <path class="cls-1" d="M19,12.56a3,3,0,0,1-6,0,3,3,0,1,1,6,0Z"/>
+                <path class="cls-1" d="M22.29,24.53a6.29,6.29,0,0,0-12.59,0"/>
+                <circle class="cls-2" cx="16" cy="16" r="11"/>
+                <path class="cls-2" d="M16,5c6.08,0,10,4.92,10,11S22.08,27,16,27"/>
+            </svg>
+        </a>
+    </div>
+</header>
+<div class="container">
+    <div class="side-bar">
+        <ul class="bar__navigation-list">
+            <li class="navigation-list__item"><a class="list__option" href="#">
+                <svg width="27px" height="27px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 6V15H6V11C6 9.89543 6.89543 9 8 9C9.10457 9 10 9.89543 10 11V15H15V6L8 0L1 6Z"
+                          fill="#000000"/>
+                </svg>
+                Home</a></li>
+            <li class="navigation-list__item"><a class="list__option" href="#">
+                <svg fill="#000000" width="27px" height="27px" viewBox="0 0 1920 1920"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M677.647 16v338.936h112.941V129.054h1016.47V919.53h-225.994v259.765L1321.412 919.53h-79.172V467.878H0v1016.47h338.71v418.9l417.996-418.9h485.534v-451.877h32.753l419.125 419.124v-419.124H1920V16H677.647ZM338.79 919.563h564.706v-112.94H338.79v112.94Zm0 225.883h338.936v-113.054H338.79v113.054Zm-225.85-564.74h1016.47v790.701H710.4L451.652 1631.06v-259.652h-338.71V580.706Z"
+                          fill-rule="evenodd"/>
+                </svg>
+                Discussions</a></li>
+            <li class="navigation-list__item"><a class="list__option" href="#">
+                <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+
+                    <g id="SVGRepo_iconCarrier">
+                        <path d="M8 12H8.009M11.991 12H12M15.991 12H16" stroke="#000000" stroke-width="2"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.5997 2.37562 15.1116 3.04346 16.4525C3.22094 16.8088 3.28001 17.2161 3.17712 17.6006L2.58151 19.8267C2.32295 20.793 3.20701 21.677 4.17335 21.4185L6.39939 20.8229C6.78393 20.72 7.19121 20.7791 7.54753 20.9565C8.88837 21.6244 10.4003 22 12 22Z"
+                              stroke="#000000" stroke-width="1.5"/>
+                    </g>
+
+                </svg>
+                Chat</a></li>
+            <li class="navigation-pd"></li>
+            <li class="navigation-list__item"><a class="list__option" href="#">
+                <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+
+                    <g id="SVGRepo_iconCarrier">
+                        <path d="M20 12.2565C20 15.7437 19.4904 21.077 19.4904 21.2821C19.4904 21.4872 19.2866 21.7949 19.0828 21.8975C18.9809 22.0001 18.879 22.0001 18.6752 22.0001C18.5732 22.0001 18.4713 22.0001 18.2675 21.8975L12.051 18.6154C11.949 18.6154 11.8471 18.6154 11.8471 18.6154L5.63057 21.8975C5.42675 22.0001 5.12102 22.0001 4.9172 21.8975C4.71338 21.7949 4.50955 21.5898 4.50955 21.2821C4.50955 21.077 4 15.7437 4 12.2565C4.10191 10.0001 4.30573 7.0257 4.50955 4.87186C4.61146 3.53852 5.63057 2.51288 6.95541 2.30775C8.38217 2.20519 10.4204 2.00006 12.051 2.00006C13.6815 2.00006 15.7197 2.20519 17.1465 2.30775C18.4713 2.41032 19.4904 3.53852 19.5924 4.87186C19.7962 7.0257 20 10.0001 20 12.2565Z"
+                              fill="#000000"/>
+                    </g>
+
+                </svg>
+                Saves</a></li>
+            <li class="navigation-list__item"><a class="list__option" href="#">
+                <svg fill="#000000" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                              	 viewBox="0 0 24 24" xml:space="preserve">
+                              <style type="text/css">
+                              	.st0 {
+                                    fill: none;
+                                }
+                              </style>
+                              <path d="M7.5,5C5.6,5,4,6.6,4,8.5S5.6,12,7.5,12S11,10.4,11,8.5S9.4,5,7.5,5z M16.5,5C14.6,5,13,6.6,13,8.5s1.6,3.5,3.5,3.5
+                              	S20,10.4,20,8.5S18.4,5,16.5,5z M7.5,14C2.6,14,1,18,1,18v2h13v-2C14,18,12.4,14,7.5,14z M16.5,14c-1.5,0-2.7,0.4-3.6,0.9
+                              	c1.4,1.2,2,2.6,2.1,2.7l0.1,0.2V20h8v-2C23,18,21.4,14,16.5,14z"/>
+                              <rect class="st0" width="24" height="24"/>
+                              </svg>
+                Users</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="content__info">
+            <div class="info__important-line"><span class="greeting">Welcome to <span class="for">For</span><span
+                    class="chim">Chim</span>, Artem Chymshyr</span>
+                <div class="info__question-block"><a class="question-block__link" href="#">Ask Question</a></div>
+            </div>
+            <span class="recent-posts">Most recent posts</span>
+        </div>
+        <div class="main-content">
+            <div class="post-items">
+                <div class="post__item">
+                    <div class="post__statistic">
+                        <div class="statistic__item">answers</div>
+                        <div class="statistic__item">views</div>
+                    </div>
+                    <div class="post__content"><a class="post__subject" href="#">Starting the Server on Tomcat using jsp
+                        pages and PostgreSQL database</a>
+                        <div class="post__short-description">I have decided to build such and application that will be
+                            ran on Tomcat 9.0.10 using spring framework java
+                        </div>
+                        <div class="post__summary">
+                            <ul class="summary__tag-items">
+                                <li class="tag__item"><a href="#">Spring</a></li>
+                                <li class="tag__item"><a href="#">JS</a></li>
+                                <li class="tag__item"><a href="#">Java</a></li>
+                            </ul>
+                            <div class="summary__user-info"><a class="user__icon" href="#"></a><a class="user__name"
+                                                                                                  href="#">Artem
+                                Chymshyr</a>
+                                <div class="user__post-time">2 min ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer-container"><a class="footer__title" href="#"><span class="for">For</span><span
+            class="chim">Chim</span></a>
+        <div class="footer-nav">
+            <div class="footer__column">
+                <ul class="footer__nav-list">
+                    <h5><a class="footer__list-title" href="#">About us</a></h5>
+                    <li class="footer__list-item"><a class="footer__item-link" href="#">Questions</a></li>
+                    <li class="footer__list-item"><a class="footer__item-link" href="#">Chat</a></li>
+                    <li class="footer__list-item"><a class="footer__item-link" href="#">Sponsorship</a></li>
+                </ul>
+            </div>
+            <div class="footer__column">
+                <ul class="footer__nav-list">
+                    <h5><a class="footer__list-title" href="#">Our cars</a></h5>
+                    <li class="footer__list-item"><a class="footer__item-link" href="#">Ferrari</a></li>
+                    <li class="footer__list-item"><a class="footer__item-link" href="#">Mercedes</a></li>
+                    <li class="footer__list-item"><a class="footer__item-link" href="#">BMW</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
