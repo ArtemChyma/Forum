@@ -18,4 +18,5 @@ public class Question {
     private Integer answers;
     private Integer views;
     private String userImage;
+    private String questionImages;
 }
