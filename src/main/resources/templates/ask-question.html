@@ -63,7 +63,7 @@
           <div class="info__page-aim">Ask a public question</div>
         </div>
         <div class="main-content">
-          <form class="question-form" action="/login" method="post">
+          <form class="question-form" th:action="@{/question/ask}" th:method="post" enctype="multipart/form-data">
             <div class="question-form__title">
               <div class="question-stage__name">Write a title below!</div>
               <input class="question__title-input" placeholder="e.g. Is there any possible solution to spring jpa connectivity?">
