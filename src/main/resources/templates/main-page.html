@@ -4,6 +4,9 @@
     <title></title>
     <link rel="stylesheet" th:href="@{/css/main-styles.css}">
     <link rel="stylesheet" th:href="@{/css/side-bar.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/default-styles.css}">
 </head>
 <body>
 <header>
@@ -112,7 +115,7 @@
         <div class="content__info">
             <div class="info__important-line"><span class="greeting">Welcome to <span class="for">For</span><span
                     class="chim">Chim</span>, Artem Chymshyr</span>
-                <div class="info__question-block"><a class="question-block__link" href="#">Ask Question</a></div>
+                <div class="info__question-block"><a class="question-block__link" th:href="@{/question/ask}">Ask Question</a></div>
             </div>
             <span class="recent-posts">Most recent posts</span>
         </div>

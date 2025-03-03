@@ -1,0 +1,42 @@
+:root {
+    --second-header-color: #FF7F00;
+    --first-header-color: #000000;
+    --search-line-placeholder: #BBBBBB;
+    --general-border-color: #BBBBBB;
+    --post-link-color: #0A5FFF;
+    --prog-language-background: #EEEEEE;
+    --prog-language-text-color: #5F5F5F;
+    --footer-text-color: #888888;
+    --footer-background-color: #000000;
+    --footer-first-text-color: #FFFFFF;
+    --question-link-text-color: #0A5FFF;
+    --question-link-hover-color: rgb(201, 217, 255);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-family: Inter, serif;
+    flex-direction: column;
+}
+
+
+.container {
+    padding-inline: 220px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.content {
+    width: 1000px;
+    padding: 45px 0 0 45px;
+    margin-bottom: 25px;
+}
+
+.content__info {
+    display: flex;
+    flex-direction: column;
+}
