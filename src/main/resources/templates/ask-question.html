@@ -63,18 +63,18 @@
           <div class="info__page-aim">Ask a public question</div>
         </div>
         <div class="main-content">
-          <form class="question-form" th:action="@{/question/ask}" th:method="post" enctype="multipart/form-data">
+          <form class="question-form" th:action="@{/question/ask}" th:method="post" th:object="${question}" enctype="multipart/form-data">
             <div class="question-form__title">
               <div class="question-stage__name">Write a title below!</div>
-              <input class="question__title-input" placeholder="e.g. Is there any possible solution to spring jpa connectivity?">
+              <input class="question__title-input" th:field="*{title}" placeholder="e.g. Is there any possible solution to spring jpa connectivity?" required>
             </div>
             <div class="question-form__problem-details">
               <div class="question-stage__name">What is your details of the problem?</div>
-              <textarea class="problem-details__area" name="problem-details__area"></textarea>
+              <textarea class="problem-details__area" th:field="*{questionContent}" name="problem-details__area" required></textarea>
             </div>
             <div class="question-form__tags">
               <div class="question-stage__name">Write some tags</div>
-              <input class="question__tag-input" placeholder="e.g. (js, java, python, c++, c)">
+              <input class="question__tag-input" th:field="*{tags}" placeholder="e.g. (js, java, python, c++, c)">
             </div>
             <div class="question-form__problem-photo">
               <div class="problem-photo__attach">
