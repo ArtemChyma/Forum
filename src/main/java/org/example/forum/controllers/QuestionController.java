@@ -15,9 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.Principal;
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.Date;
 
 @Controller
 @RequestMapping("/question/")

@@ -121,14 +121,15 @@
         </div>
         <div class="main-content">
             <div class="post-items">
-                <div class="post__item">
+
+                <div th:each="question : ${questionList}" class="post__item">
                     <div class="post__statistic">
-                        <div class="statistic__item">answers</div>
-                        <div class="statistic__item">views</div>
+                        <div th:text="'answers: ' + ${question.getAnswers()} " class="statistic__item">answers: 0</div>
+                        <div th:text="'views: ' + ${question.getViews()} " class="statistic__item">views: 0</div>
                     </div>
-                    <div class="post__content"><a class="post__subject" href="#">Starting the Server on Tomcat using jsp
+                    <div class="post__content"><a class="post__subject" th:text="${question.getTitle()}" href="#">Starting the Server on Tomcat using jsp
                         pages and PostgreSQL database</a>
-                        <div class="post__short-description">I have decided to build such and application that will be
+                        <div th:text="${question.getQuestionContent()}" class="post__short-description">I have decided to build such and application that will be
                             ran on Tomcat 9.0.10 using spring framework java
                         </div>
                         <div class="post__summary">
