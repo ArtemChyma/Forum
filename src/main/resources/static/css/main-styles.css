@@ -48,12 +48,16 @@
     height: 500px;
     border: 1px solid var(--general-border-color);
     border-radius: 5px;
+    overflow-y: scroll;
 }
 
 .post__item {
     display: flex;
     flex-direction: row;
     padding: 20px;
+}
+
+.post__item:not(:last-child) {
     border-bottom: 1px solid var(--general-border-color);
 }
 

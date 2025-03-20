@@ -121,27 +121,26 @@
         </div>
         <div class="main-content">
             <div class="post-items">
-
                 <div th:each="question : ${questionList}" class="post__item">
                     <div class="post__statistic">
-                        <div th:text="'answers: ' + ${question.getAnswers()} " class="statistic__item">answers: 0</div>
-                        <div th:text="'views: ' + ${question.getViews()} " class="statistic__item">views: 0</div>
+                        <div th:text="'answers: ' + ${question.getQuestion().getAnswers()} " class="statistic__item">answers: 0</div>
+                        <div th:text="'views: ' + ${question.getQuestion().getViews()} " class="statistic__item">views: 0</div>
                     </div>
-                    <div class="post__content"><a class="post__subject" th:text="${question.getTitle()}" href="#">Starting the Server on Tomcat using jsp
+                    <div class="post__content"><a class="post__subject" th:text="${question.getQuestion().getTitle()}" href="#">Starting the Server on Tomcat using jsp
                         pages and PostgreSQL database</a>
-                        <div th:text="${question.getQuestionContent()}" class="post__short-description">I have decided to build such and application that will be
+                        <div th:text="${question.getQuestion().getQuestionContent()}" class="post__short-description">I have decided to build such and application that will be
                             ran on Tomcat 9.0.10 using spring framework java
                         </div>
                         <div class="post__summary">
                             <ul class="summary__tag-items">
-                                <li class="tag__item"><a href="#">Spring</a></li>
-                                <li class="tag__item"><a href="#">JS</a></li>
-                                <li class="tag__item"><a href="#">Java</a></li>
+                                <li th:each="tag : ${question.getTags()}" class="tag__item"><a th:text="${tag}" href="#">Spring</a></li>
+<!--                                <li class="tag__item"><a href="#">JS</a></li>-->
+<!--                                <li class="tag__item"><a href="#">Java</a></li>-->
                             </ul>
-                            <div class="summary__user-info"><a class="user__icon" href="#"></a><a class="user__name"
+                            <div class="summary__user-info"><a class="user__icon" href="#"></a><a th:text="${question.getUser().getFirstName() + ' ' + question.getUser().getSecondName()}" class="user__name"
                                                                                                   href="#">Artem
                                 Chymshyr</a>
-                                <div class="user__post-time">2 min ago</div>
+                                <div th:text="${question.getQuestion().getPostTime()}" class="user__post-time">2 min ago</div>
                             </div>
                         </div>
                     </div>

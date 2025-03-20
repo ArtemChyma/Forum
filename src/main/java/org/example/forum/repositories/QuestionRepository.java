@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface QuestionRepository extends JpaRepository<Question, Long> {
 
-    Page<Question> findAll(Pageable pageable);
+    Page<Question> findAllSortedBy(Pageable pageable);
 }

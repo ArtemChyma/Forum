@@ -62,7 +62,7 @@ public class QuestionController {
                 }
             }
         }
-        return "main-page";
+        return "redirect:/main-page";
     }
 
 }

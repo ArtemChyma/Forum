@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class QuestionService {
 
     public List<Question> getQuestionsInRange(int offset, int limit) {
         int page = offset / limit;
-        Pageable pageable = PageRequest.of(page, limit);
+        Pageable pageable = PageRequest.of(page, limit, Sort.Direction.DESC, "postTime");
         Page<Question> questionPage = questionRepository.findAll(pageable);
         return questionPage.getContent();
     }
